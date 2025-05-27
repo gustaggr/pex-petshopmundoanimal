@@ -24,6 +24,9 @@ body.login {
     max-width: 400px;
 }
 
+.credentials {
+    font-size: 15px;
+}
 .logo {
     width: 100px;
     margin-bottom: 1rem;
