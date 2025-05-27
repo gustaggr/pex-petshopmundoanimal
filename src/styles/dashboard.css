@@ -1,0 +1,187 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Botão do menu no mobile */
+.menu-toggle {
+  display: none;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  z-index: 1001;
+  color: #00796b;
+  cursor: pointer;
+}
+
+/* Sidebar */
+.sidebar {
+  background-color: #00796b;
+  color: white;
+  width: 250px;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  transition: left 0.3s ease;
+}
+
+.sidebar .logo {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.sidebar .logo img {
+  width: 60px;
+  margin-bottom: 0.5rem;
+}
+
+.sidebar .menu a {
+  color: white;
+  text-decoration: none;
+  padding: 0.8rem;
+  display: block;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+  transition: background 0.3s;
+}
+
+.logout {
+  background-color: #c62828;
+  color: white;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s;
+  text-align: left;
+  width: 100%;
+
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.logout i {
+  font-size: 1.2rem;
+}
+
+.logout:hover {
+  background-color: #b71c1c;
+}
+
+.sidebar .menu a:hover,
+.sidebar .menu a.active {
+  background-color: #004d40;
+}
+
+.sidebar .menu {
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* Ocupa o espaço vertical restante */
+}
+
+/* Conteúdo principal */
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  background-color: #f0f4f8;
+}
+
+.header {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  color: #00796b;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+/* NOVO: Seção de últimos cadastros */
+.latest-section {
+  margin-top: 2rem;
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.latest-section h2 {
+  font-size: 1.5rem;
+  color: #004d40;
+  margin-bottom: 1rem;
+}
+
+.latest-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.latest-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 1rem;
+  color: #333;
+}
+
+.latest-list li:last-child {
+  border-bottom: none;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -260px;
+    height: 100%;
+    z-index: 1000;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+  }
+
+  .sidebar.open {
+    left: 0;
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pets - Mundo Animal</title>
+    <link rel="stylesheet" href="/src/styles/dashboard.css" />
+    <link rel="stylesheet" href="/src/styles/clientes.css" />
+</head>
+
+<body>
+    <button id="menu-toggle" class="menu-toggle">☰</button>
+
+    <aside class="sidebar" id="sidebar">
+        <div class="logo">
+            <img src="/src/images/logo.svg" alt="Logo Mundo Animal" />
+            <h2>Mundo Animal</h2>
+        </div>
+        <nav class="menu">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="clientes.html">Clientes</a>
+            <a href="pets.html" class="active">Pets</a>
+
+            <button onclick="logout()" class="logout">
+                <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512" fill="white">
+                    <path
+                        d="M497 273L353 393c-15 14-41 4-41-17v-66H192c-18 0-32-14-32-32v-32c0-18 14-32 32-32h120v-66c0-21 26-31 41-17l144 120c12 10 12 30 0 40zM48 80h176c13 0 24-11 24-24S237 32 224 32H48C21 32 0 53 0 80v352c0 27 21 48 48 48h176c13 0 24-11 24-24s-11-24-24-24H48V80z" />
+                </svg>
+                Sair
+            </button>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <header class="header">
+            <h1>Pets</h1>
+        </header>
+
+        <section class="clientes-section">
+            <button onclick="openPetModal()" class="btn">+ Adicionar Pet</button>
+            <table class="clientes-table">
+                <thead>
+                    <tr>
+                        <th>Nome do Pet</th>
+                        <th>Espécie</th>
+                        <th>Idade</th>
+                        <th>Dono</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="pets-table-body">
+                </tbody>
+            </table>
+            </div>
+
+            <!-- Modal de Cadastro/Editar Pet -->
+            <div class="modal-overlay hidden-modal" id="petModal">
+                <div class="modal-content">
+                    <span class="close" onclick="closePetModal()">&times;</span>
+                    <h2 id="modal-title">Adicionar Pet</h2>
+                    <form id="pet-form" onsubmit="savePet(event)">
+                        <input type="hidden" id="pet-id" />
+
+                        <label for="pet-name">Nome do Pet:</label>
+                        <input type="text" id="pet-name" required />
+
+                        <label for="pet-species">Espécie:</label>
+                        <input type="text" id="pet-species" required />
+
+                        <label for="pet-age">Idade:</label>
+                        <input type="number" id="pet-age" required />
+
+                        <label for="pet-owner">Cliente:</label>
+                        <select id="pet-owner" required>
+                            <!-- Lista de clientes preenchida via JS -->
+                        </select>
+
+                        <button type="submit">Salvar</button>
+                    </form>
+                </div>
+            </div>
+
+            <script src="/src/js/script.js"></script>
+            <script src="/src/js/pets.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,247 @@
+.main-content {
+    flex: 1;
+    padding: 2rem;
+    background-color: #f0f4f8;
+    display: flex;
+    flex-direction: column;
+}
+
+.btn {
+    background-color: #0044ff;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    display: flex;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 20px;
+    width: max-content;
+    font-weight: bold;
+    transition: background-color 0.3s;
+
+}
+
+.btn:hover {
+    background-color: #004d40;
+}
+
+.header {
+
+    margin-top: 2rem;
+}
+
+.clientes-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.clientes-table thead {
+    background-color: #00796b;
+    color: white;
+    text-align: left;
+}
+
+.clientes-table thead th {
+    padding: 12px 16px;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.clientes-table tbody tr {
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s ease;
+    cursor: default;
+}
+
+.clientes-table tbody tr:hover {
+    background-color: #e0f2f1;
+}
+
+.clientes-table tbody td {
+    padding: 12px 16px;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* escurecimento do fundo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    /* garante que fique acima de todo o conteúdo */
+}
+
+/* Caixa do conteúdo do modal */
+.modal-content {
+    background-color: #f0f4f8;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+select#pet-owner {
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    font-family: inherit;
+    background-color: #fff;
+    color: #333;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    appearance: none;
+    /* Remove o estilo padrão do sistema */
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D'10'%20height%3D'6'%20viewBox%3D'0%200%2010%206'%20xmlns%3D'http%3A//www.w3.org/2000/svg'%3E%3Cpath%20d%3D'M0%200l5%206%205-6z'%20fill%3D'%2000'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 10px 6px;
+}
+
+/* Botão de fechar (X) */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: red;
+}
+
+/* Estilo dos rótulos e inputs */
+.modal-content label {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #333;
+}
+
+.modal-content input {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.modal-content h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #000000;
+    text-align: center;
+}
+
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Botão salvar */
+.modal-content button[type="submit"] {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.modal-content button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.hidden-modal {
+    display: none;
+}
+
+.clientes-table tbody td button {
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin-right: 0.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.button-deleted {
+    background-color: #d32f2f;
+}
+
+.button-edit {
+    background-color: #0044ff;
+}
+
+
+
+.clientes-table tbody td:last-child {
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    .clientes-table thead {
+        display: none;
+    }
+
+    .clientes-table,
+    .clientes-table tbody,
+    .clientes-table tr,
+    .clientes-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .clientes-table tr {
+        margin-bottom: 15px;
+        border-bottom: 2px solid #00796b;
+    }
+
+    .clientes-table td {
+        padding-left: 50%;
+        position: relative;
+        text-align: left;
+        border: none;
+    }
+
+    .clientes-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 16px;
+        font-weight: bold;
+        color: #00796b;
+    }
+}
+
+.clientes-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}

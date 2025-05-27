@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clientes - Mundo Animal</title>
+    <link rel="stylesheet" href="/src/styles/dashboard.css" />
+    <link rel="stylesheet" href="/src/styles/clientes.css" />
+</head>
+
+<body>
+    <button id="menu-toggle" class="menu-toggle">☰</button>
+
+    <aside class="sidebar" id="sidebar">
+        <div class="logo">
+            <img src="/src/images/logo.svg" alt="Logo Mundo Animal" />
+            <h2>Mundo Animal</h2>
+        </div>
+            <nav class="menu">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="clientes.html" class="active">Clientes</a>
+            <a href="pets.html">Pets</a>
+
+            <button onclick="logout()" class="logout">
+                <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512" fill="white">
+                    <path
+                        d="M497 273L353 393c-15 14-41 4-41-17v-66H192c-18 0-32-14-32-32v-32c0-18 14-32 32-32h120v-66c0-21 26-31 41-17l144 120c12 10 12 30 0 40zM48 80h176c13 0 24-11 24-24S237 32 224 32H48C21 32 0 53 0 80v352c0 27 21 48 48 48h176c13 0 24-11 24-24s-11-24-24-24H48V80z" />
+                </svg>
+                Sair
+            </button>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <header class="header">
+            <h1>Clientes</h1>
+        </header>
+
+        <section class="clientes-section">
+            <button id="open-add-modal" class="btn">+ Adicionar Cliente</button>
+
+            <table class="clientes-table">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Telefone</th>
+                        <th>Email</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="cliente-list"></tbody>
+            </table>
+        </section>
+
+        <div id="clientModal" class="modal-overlay" style="display: none;">
+            <div class="modal-content">
+                <span class="close" onclick="closeClientModal()">&times;</span>
+                <h2 id="modal-title-client">Adicionar Cliente</h2>
+                <form id="client-form" onsubmit="saveClient(event)">
+                    <div>
+                        <label for="client-nome">Nome:</label>
+                        <input type="text" id="client-nome" name="nome" required />
+                    </div>
+                    <div>
+                        <label for="client-telefone">Telefone:</label>
+                        <input type="text" id="client-telefone" name="telefone" required />
+                    </div>
+                    <div>
+                        <label for="client-email">Email:</label>
+                        <input type="email" id="client-email" name="email" required />
+                    </div>
+                    <button type="submit">Salvar</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="edit-modal" class="modal">
+            <div class="modal-content hidden-modal">
+                <span class="close" data-close="edit-modal">&times;</span>
+                <h2>Editar Cliente</h2>
+                <form id="edit-form">
+                    <input type="text" id="edit-nome" required />
+                    <input type="text" id="edit-telefone" required />
+                    <button type="submit">Atualizar</button>
+                </form>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="/src/js/script.js"></script>
+    <script src="/src/js/clientes.js"></script>
+</body>
+
+</html>
